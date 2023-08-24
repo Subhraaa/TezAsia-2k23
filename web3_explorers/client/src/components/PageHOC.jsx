@@ -5,7 +5,7 @@ import Alert from './Alert';
 import { useGlobalContext } from '../context';
 import { logo, heroImg } from '../assets';
 import styles from '../styles';
-
+//HOC - HIgher order component can wrap another component. Here it wraps Home
 const PageHOC = (Component, title, description) => () => {
   const { showAlert } = useGlobalContext();
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const PageHOC = (Component, title, description) => () => {
   return (
     <div className={styles.hocContainer}>
       {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
-
+//Homepage takes logo from pagehoc file
       <div className={styles.hocContentBox}>
         <img src={logo} alt="logo" className={styles.hocLogo} onClick={() => navigate('/')} />
 
@@ -27,7 +27,7 @@ const PageHOC = (Component, title, description) => () => {
           <Component />
         </div>
 
-        <p className={styles.footerText}>Made with 💜 by JavaScript Mastery</p>
+        <p className={styles.footerText}>Made with 💜 by Subhra</p>
       </div>
 
       <div className="flex flex-1">
